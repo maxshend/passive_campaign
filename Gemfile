@@ -18,9 +18,9 @@ gem "stimulus-rails"
 gem "tailwindcss-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
-
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -36,6 +36,11 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+gem "strong_migrations", "~> 2.0"
+
+# lograge changes Rails' logging to a more traditional one-line-per-event format
+gem "lograge", "~> 0.14.0"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
@@ -43,14 +48,40 @@ group :development, :test do
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
 
+  # Checks our dependencies for vulnerabilities
+  gem "bundler-audit", require: false
+
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 
+  # An extension of RuboCop focused on code performance checks.
+  gem "rubocop-performance", require: false
+
   # Runtime configs for dev and test
   gem "dotenv"
+
+  # Testing Framework
+  gem "rspec-rails", "~> 7.0.0"
+
+  # Code style checking for RSpec files
+  gem "rubocop-rspec", require: false
+
+  # Fixtures replacement
+  gem "factory_bot_rails", "~> 6.4"
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+end
+
+group :test do
+  # Library for tests optimization
+  gem "test-prof", "~> 1.4"
+
+  # Library for stubbing and setting expectations on HTTP requests
+  gem "webmock", "~> 3.23"
+
+  # Simple one-liner tests for common Rails functionality
+  gem "shoulda-matchers", "~> 6.0"
 end
