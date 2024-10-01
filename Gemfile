@@ -92,7 +92,7 @@ group :test do
   gem "test-prof", "~> 1.4"
 
   # Library for stubbing and setting expectations on HTTP requests
-  gem "webmock", "~> 3.23"
+  gem "webmock", "~> 3.24"
 
   # Simple one-liner tests for common Rails functionality
   gem "shoulda-matchers", "~> 6.0"
